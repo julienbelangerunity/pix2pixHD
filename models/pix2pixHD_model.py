@@ -93,7 +93,7 @@ class Pix2PixHDModel(BaseModel):
                 params_dict = dict(self.netG.named_parameters())
                 params = []
                 for key, value in params_dict.items():       
-                    if key.startswith('model' + str(opt.n_local_enhancers)):                    
+                    if key.startswith('model.' + str(opt.n_local_enhancers)):                    
                         params += [value]
                         finetune_list.add(key.split('.')[0])  
                 print('------------- Only training the local enhancer network (for %d epochs) ------------' % opt.niter_fix_global)
